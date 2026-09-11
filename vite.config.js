@@ -10,6 +10,7 @@ export default defineConfig({
     vue(),
     vueDevTools(),
   ],
+  base: '/evolusi-pl-542393-vue/',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
