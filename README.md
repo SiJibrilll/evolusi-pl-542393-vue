@@ -1,6 +1,8 @@
-# evolusi-pl-fe-jibril
+# TaskFlow (evolusi-pl-fe-jibril)
 
-This template should help get you started developing with Vue 3 in Vite.
+[![CI/CD](https://github.com/SiJibrilll/evolusi-pl-542393-vue/actions/workflows/ci.yml/badge.svg)](https://github.com/SiJibrilll/evolusi-pl-542393-vue/actions/workflows/ci.yml)
+
+Aplikasi To-Do List modern dan sederhana dengan Vue 3, Vite, dan localStorage.
 
 ## Recommended IDE Setup
 
@@ -67,4 +69,3 @@ npm run test:e2e -- --debug
 ```sh
 npm run lint
 ```
-# evolusi-pl-542393-vue

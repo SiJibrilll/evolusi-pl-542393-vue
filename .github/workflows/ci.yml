@@ -52,6 +52,37 @@ jobs:
           cache: 'npm'
       - run: npm ci
       - run: npm run build
+      - name: Calculate bundle size
+        run: |
+          echo "=== 📦 Bundle Size Summary ==="
+          TOTAL_SIZE=$(du -sh dist/ | cut -f1)
+          echo "Total Build Size: $TOTAL_SIZE"
+          echo ""
+          echo "--- Assets (Uncompressed) ---"
+          ls -lh dist/assets/
+          echo ""
+          echo "--- Assets (Gzipped) ---"
+          for file in dist/assets/*; do
+            if [ -f "$file" ]; then
+              gzip -c "$file" | wc -c | awk -v name="$(basename "$file")" '{ printf "%-35s %8.2f KB (gzip)\n", name, $1/1024 }'
+            fi
+          done
+          echo ""
+          if [ -n "$GITHUB_STEP_SUMMARY" ]; then
+            echo "### 📦 Bundle Size Summary" >> $GITHUB_STEP_SUMMARY
+            echo "**Total Size:** \`$TOTAL_SIZE\`" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "| Asset | Size | Gzipped |" >> $GITHUB_STEP_SUMMARY
+            echo "| --- | --- | --- |" >> $GITHUB_STEP_SUMMARY
+            for file in dist/assets/*; do
+              if [ -f "$file" ]; then
+                FNAME=$(basename "$file")
+                FSIZE=$(ls -lh "$file" | awk '{print $5}')
+                GZSIZE=$(gzip -c "$file" | wc -c | awk '{ printf "%.2f KB", $1/1024 }')
+                echo "| \`$FNAME\` | $FSIZE | $GZSIZE |" >> $GITHUB_STEP_SUMMARY
+              fi
+            done
+          fi
       - name: Verify no secrets in dist/
         run: |
           echo "Scanning dist/ for 'secret' or 'password'..."
