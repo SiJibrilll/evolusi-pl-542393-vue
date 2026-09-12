@@ -1,4 +1,6 @@
 <script setup>
+import { RouterLink } from 'vue-router'
+
 function scrollToSection(id) {
   const el = document.getElementById(id)
   if (el) {
@@ -38,9 +40,7 @@ function scrollToSection(id) {
         </nav>
 
         <div class="nav-actions">
-          <button type="button" class="btn btn-primary" @click="scrollToSection('mulai')">
-            Mulai Sekarang
-          </button>
+          <RouterLink to="/todos" class="btn btn-primary"> Buka Aplikasi </RouterLink>
         </div>
       </div>
     </header>
@@ -62,9 +62,7 @@ function scrollToSection(id) {
           </p>
 
           <div class="hero-buttons">
-            <button type="button" class="btn btn-primary btn-lg" @click="scrollToSection('mulai')">
-              Mulai Sekarang
-            </button>
+            <RouterLink to="/todos" class="btn btn-primary btn-lg"> Mulai Sekarang </RouterLink>
             <button
               type="button"
               class="btn btn-secondary btn-lg"
@@ -256,9 +254,9 @@ function scrollToSection(id) {
           <p class="cta-desc">
             Kelola daftar tugas Anda dengan mudah. Gratis dan langsung bisa digunakan.
           </p>
-          <button type="button" class="btn btn-primary btn-lg" @click="scrollToSection('fitur')">
+          <RouterLink to="/todos" class="btn btn-primary btn-lg">
             Mulai Sekarang — Gratis
-          </button>
+          </RouterLink>
         </div>
       </section>
     </main>
