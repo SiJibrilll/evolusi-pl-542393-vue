@@ -4,6 +4,22 @@
 
 Aplikasi To-Do List modern dan sederhana dengan Vue 3, Vite, dan localStorage.
 
+## 📦 Bundle Size Summary
+
+Hasil build produksi dioptimalkan agar tetap ringan, cepat dimuat, dan hemat bandwidth:
+
+<!-- BUNDLE_SIZE_START -->
+| Asset | Deskripsi | Ukuran (Raw) | Gzipped |
+| --- | --- | --- | --- |
+| `index-CqN4eyvf.css` | Style Global & Landing | 8.49 KB | 2.11 KB |
+| `index-nV3KbuCF.js` | Bundel Utama (Core JS) | 94.60 KB | 35.58 KB |
+| `TodoView-BlP6ORkc.css` | Scoped CSS | 7.99 KB | 1.77 KB |
+| `TodoView-DU_yhMl2.js` | Lazy Route JS | 7.74 KB | 2.90 KB |
+| **Total Dist** | **Seluruh Aset Produksi** | **118.82 KB** | **42.35 KB** |
+<!-- BUNDLE_SIZE_END -->
+
+> 💡 *Catatan: Ringkasan ukuran bundel ini juga dihitung dan ditampilkan secara otomatis pada setiap proses build di GitHub Actions CI/CD workflow.*
+
 ## Recommended IDE Setup
 
 [VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
